@@ -27,6 +27,9 @@ void print_list(const listint_t *list);
 /*prototype function*/
 void bubble_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void quicksort(int *array, size_t size, ssize_t lo, ssize_t hi);
+size_t lomuto_partition(int *array, size_t size, ssize_t lo, ssize_t hi);
+void swp(int *array, size_t size, int *a, int *b);
 void selection_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 
