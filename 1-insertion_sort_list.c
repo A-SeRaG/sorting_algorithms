@@ -10,9 +10,9 @@
 void swaping(listint_t *x, listint_t *y)
 {
 	if (!x->prev)
-	x->prev->next = y;
+		x->prev->next = y;
 	if (!y->next)
-	y->next->prev = x;
+		y->next->prev = x;
 	x->prev = y;
 	y->next = x;
 	x->next = y->next;
@@ -29,25 +29,25 @@ void insertion_sort_list(listint_t **list)
 	listint_t *i, *j;
 
 	if (!list || !*list || !(*list)->next)
-	return;
+		return;
 	i = (*list)->next;
 	while (i)
 	{
-	j = i;
-	i = i->next;
+		j = i;
+		i = i->next;
 
-	while (j && j->prev)
-	{
-	if (j->prev->n > j->n)
-	{
-	swaping(j->prev, j);
-	if (!j->prev)
-	*list = j;
-	print_list((const listint_t *)*list)
-	}
-	else
-	j = j->prev;
-	}
+		while (j && j->prev)
+		{
+			if (j->prev->n > j->n)
+			{
+				swaping(j->prev, j);
+				if (!j->prev)
+					*list = j;
+				print_list((const listint_t *)*list)
+			}
+			else
+				j = j->prev;
+		}
 	}
 }
 
