@@ -26,7 +26,7 @@ void swaping(listint_t *x, listint_t *y)
 */
 void insertion_sort_list(listint_t **list)
 {
-	int i, j;
+	listint_t *i, *j;
 
 	if (!list || !*list || !(*list)->next)
 		return;
