@@ -1,28 +1,29 @@
 #include "sort.h"
 
 /**
- * swaping - Swap
+ * swaping - Swap two
  * @x: first
  * @y: second
  */
 void swaping(int *x, int *y)
 {
-	int curunt;
+	int t;
 
-	curunt = *x;
+	t = *x;
 	*x = *y;
-	*y = curunt;
+	*y = t;
 }
 
 /**
- * selection_sort - bitc
+ * selection_sort - Sort an array
  * @array: array
- * @size: The
- * Return: suc
+ * @size: size
+ *
+ * Return: array
  */
 void selection_sort(int *array, size_t size)
 {
-	int *nolds;
+	int *m;
 	size_t i, j;
 
 	if (array == NULL || size < 2)
@@ -30,13 +31,13 @@ void selection_sort(int *array, size_t size)
 
 	for (i = 0; i < size - 1; i++)
 	{
-		nolds = array + i;
+		m = array + i;
 		for (j = i + 1; j < size; j++)
-			nolds = (array[j] < *nolds) ? (array + j) : nolds;
+			m = (array[j] < *m) ? (array + j) : m;
 
-		if ((array + i) != nolds)
+		if ((array + i) != m)
 		{
-			swaping(array + i, mnolds);
+			swaping(array + i, m);
 			print_array(array, size);
 		}
 	}
