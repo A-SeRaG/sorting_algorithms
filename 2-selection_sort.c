@@ -26,19 +26,18 @@ void selection_sort(int *array, size_t size)
 	int *c
 	size_t i, j;
 
-	if (!array || !size)
-	return;
+	if (!array || size < 2)
+		return;
 
 	for (i = 0; i < size - 1; i++)
 	{
-	c = array + i;
-	for (j = i + 1; j < size; j++)
-	c = (array[j] < *c) ? (array + j) : c;
-
-	if ((array + i) != c)
-	{
-	swaping(array + i, c);
-	print_array(array, size);
-	}
+		c = array + i;
+		for (j = i + 1; j < size; j++)
+			c = (array[j] < *c) ? (array + j) : c;
+		if ((array + i) != c)
+		{
+			swaping(array + i, c);
+		print_array(array, size);
+		}
 	}
 }
