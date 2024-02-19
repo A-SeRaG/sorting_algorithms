@@ -1,8 +1,8 @@
 #include "sort.h"
 
 /**
- * swp - swap two integer number
- * @array: array to sort
+ * swp - swap two integer number and print
+ * @array: array to swap
  * @size: size of array
  * @a: address of first value
  * @b: address of second value
@@ -11,17 +11,16 @@
 
 void swp(int *array, size_t size, int *a, int *b)
 {
-	if (*a != *b)
-	{
-		*a += *b;
-		*b = *a - *b;
-		*a = *a - *b;
-		print_array((const int *)array, size);
-	}
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+	print_array(array, size);
 }
 
 /**
- * lomuto_partition - partitions the array
+ * lomu_part - partitions the array
  * @array: array to sorted
  * @size: size of array
  * @lo: the low index
@@ -29,14 +28,14 @@ void swp(int *array, size_t size, int *a, int *b)
  * Return: size_t
 */
 
-size_t lomuto_partition(int *array, size_t size, ssize_t lo, ssize_t hi)
+int lomu_part(int *array, size_t size, int lo, int hi)
 {
 	int i, j, pivot = array[hi];
 
 	for (i = j = lo; j < hi; j++)
 		if (array[j] < pivot)
-			swp(array, size, &array[j], &array[i++]);
-		swp(array, size, &array[i], &array[hi]);
+			if (i < j)
+				swp(array, size, &array[j], &array[i++]);
 	return (i);
 }
 
@@ -49,11 +48,11 @@ size_t lomuto_partition(int *array, size_t size, ssize_t lo, ssize_t hi)
  * Return: void
 */
 
-void quicksort(int *array, size_t size, ssize_t lo, ssize_t hi)
+void quicksort(int *array, size_t size, int lo, int hi)
 {
 	if (lo < hi)
 	{
-		size_t S = lomuto_partition(array, size, lo, hi);
+		int S = lomuto_partition(array, size, lo, hi);
 
 		quicksort(array, size, lo, S - 1);
 		quicksort(array, size, S + 1, hi);
@@ -69,7 +68,7 @@ void quicksort(int *array, size_t size, ssize_t lo, ssize_t hi)
 
 void quick_sort(int *array, size_t size)
 {
-	if (!array || !size)
+	if (!array || size < 2)
 		return;
 	quicksort(array, size, 0, size - 1);
 }
