@@ -17,10 +17,13 @@ void swp(int *array, size_t size, int *a, int *b)
 {
 	int tmp;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	print_array((const int *)array, size);
+	if (*a != *b)
+	{
+		tmp = *a;
+		*a = *b;
+		*b = tmp;
+		print_array((const int *)array, size);
+	}
 }
 
 /**
@@ -38,10 +41,8 @@ int lomu_part(int *array, size_t size, int lo, int hi)
 
 	for (i = j = lo; j < hi; j++)
 		if (array[j] < pivot)
-			if (i < j)
-				swp(array, size, &array[j], &array[i++]);
-	if (array[i] > pivot)
-		swp(array, size, &array[i], &array[hi]);
+			swp(array, size, &array[j], &array[i++]);
+	swp(array, size, &array[i], &array[hi]);
 	return (i);
 }
 
