@@ -40,7 +40,7 @@ int lomu_part(int *array, size_t size, int lo, int hi)
 }
 
 /**
- * quicksort - function sort array in quicksort algorithem
+ * lomu_sort - function sort array in quicksort algorithem
  * @array: array to sorted
  * @size: size of array
  * @lo: the low index
@@ -48,14 +48,14 @@ int lomu_part(int *array, size_t size, int lo, int hi)
  * Return: void
 */
 
-void quicksort(int *array, size_t size, int lo, int hi)
+void lomu_sort(int *array, size_t size, int lo, int hi)
 {
 	if (lo < hi)
 	{
-		int S = lomuto_partition(array, size, lo, hi);
+		int S = lomu_part(array, size, lo, hi);
 
-		quicksort(array, size, lo, S - 1);
-		quicksort(array, size, S + 1, hi);
+		lomu_sort(array, size, lo, S - 1);
+		lomu_sort(array, size, S + 1, hi);
 	}
 }
 
@@ -70,6 +70,6 @@ void quick_sort(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
-	quicksort(array, size, 0, size - 1);
+	lomu_sort(array, size, 0, size - 1);
 }
 
