@@ -6,6 +6,7 @@
  * @n1: A pointer to the first node
  * @n2: A pointer to The second node
  */
+
 void swp_node(listint_t **h, listint_t **n1, listint_t *n2)
 {
 	(*n1)->next = n2->next;
@@ -22,16 +23,16 @@ void swp_node(listint_t **h, listint_t **n1, listint_t *n2)
 }
 
 /**
- * insertion_sort_list - Entry point
+ * insertion_sort_list - function to sort the list
  * @list: douple pointer
- * Return: always succuss
 */
+
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *i, *j, *k;
 
-	if (!list || !*list || !(*list)->next)
-			return;
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
 
 	for (i = (*list)->next; i != NULL; i = k)
 	{
@@ -47,3 +48,4 @@ void insertion_sort_list(listint_t **list)
 			*list = i;
 	}
 }
+
