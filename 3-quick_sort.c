@@ -41,7 +41,7 @@ int lomu_part(int *array, size_t size, int lo, int hi)
 			if (i < j)
 				swp(array, size, &array[j], &array[i++]);
 	if (array[i] > pivot)
-		swp(array, size,&array[i], &array[hi]);
+		swp(array, size, &array[i], &array[hi]);
 	return (i);
 }
 
