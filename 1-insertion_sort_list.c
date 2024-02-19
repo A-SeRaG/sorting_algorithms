@@ -26,27 +26,19 @@ void swp_node(listint_t *x, listint_t *y)
 */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *i, *j;
+	listint_t *i, *j, *k;
 
 	if (!list || !*list || !(*list)->next)
 		return;
-	i = (*list)->next;
-	while (i)
-	{
-		j = i;
-		i = i->next;
 
-		while (j && j->prev)
+	for (i = (*list)->next; i != NULL; i = i->next)
+	{
+		k = i->next;
+		j = i->prev;
+		while (j != NULL && i->n < j->n)
 		{
-			if (j->prev->n > j->n)
-			{
-				swp_node(j->prev, j);
-				if (!j->prev)
-					*list = j;
-				print_list((const listint_t *)*list);
-			}
-			else
-				j = j->prev;
+			swp_node(list, j, i);
+			print_list((const listint_t *)*list);
 		}
 	}
 }
