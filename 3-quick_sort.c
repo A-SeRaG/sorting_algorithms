@@ -17,9 +17,9 @@ void swp(int *array, size_t size, int *a, int *b)
 {
 	int tmp;
 
-	tmp = array[a];
-	array[a] = array[b];
-	array[b] = tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 	print_array((const int *)array, size);
 }
 
