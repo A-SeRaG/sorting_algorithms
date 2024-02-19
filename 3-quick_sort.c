@@ -16,7 +16,7 @@ void swp(int *array, size_t size, int *a, int *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-	print_array(array, size);
+	print_array((const int *)array, size);
 }
 
 /**
@@ -25,7 +25,7 @@ void swp(int *array, size_t size, int *a, int *b)
  * @size: size of array
  * @lo: the low index
  * @hi: the high index
- * Return: size_t
+ * Return: int
 */
 
 int lomu_part(int *array, size_t size, int lo, int hi)
