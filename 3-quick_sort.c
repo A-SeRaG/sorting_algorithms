@@ -1,5 +1,9 @@
 #include "sort.h"
 
+void swp(int *array, size_t size, int *a, int *b);
+int lomu_part(int *array, size_t size, int lo, int hi);
+void lomu_sort(int *array, size_t size, int lo, int hi);
+
 /**
  * swp - swap two integer number and print
  * @array: array to swap
