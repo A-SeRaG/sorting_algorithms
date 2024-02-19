@@ -37,7 +37,7 @@ void insertion_sort_list(listint_t **list)
 		j = i->prev;
 		while (j != NULL && i->n < j->n)
 		{
-			swp_node(list, j, i);
+			swp_node(j, i);
 			print_list((const listint_t *)*list);
 		}
 	}
