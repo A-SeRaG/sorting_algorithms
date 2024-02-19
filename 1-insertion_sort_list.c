@@ -1,17 +1,17 @@
 #include "sort.h"
 
 /**
- * swaping - Entry point
+ * swp_node - swap 2 nodes in list
  * @x: node one
  * @y: node two
- * Return: 0 on success, -1 on failure
+ * Return: void
 */
 
-void swaping(listint_t *x, listint_t *y)
+void swp_node(listint_t *x, listint_t *y)
 {
-	if (!x->prev)
+	if (x->prev)
 		x->prev->next = y;
-	if (!y->next)
+	if (y->next)
 		y->next->prev = x;
 	x->prev = y;
 	y->next = x;
@@ -40,10 +40,10 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (j->prev->n > j->n)
 			{
-				swaping(j->prev, j);
+				swp_node(j->prev, j);
 				if (!j->prev)
 					*list = j;
-				print_list((const listint_t *)*list)
+				print_list((const listint_t *)*list);
 			}
 			else
 				j = j->prev;
