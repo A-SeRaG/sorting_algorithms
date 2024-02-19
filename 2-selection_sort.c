@@ -1,12 +1,18 @@
 #include "sort.h"
 
+/**
+ * swaping - Entry
+ * @x: lol
+ * @y: lol
+ * Return: susucc
+*/
 void swaping(int *x, int *y)
 {
-    int current;
+	int current;
 
-    current = *x;
-    *x = *y;
-    *y = current;
+	current = *x;
+	*x = *y;
+	*y = current;
 }
 
 /**
@@ -17,22 +23,22 @@ void swaping(int *x, int *y)
 */
 void selection_sort(int *array, size_t size)
 {
-    int *c
-    size_t i, j;
+	int *c
+	size_t i, j;
 
-    if (!array || !size)
-        return;
+	if (!array || !size)
+	return;
 
-        for (i = 0; i < size - 1; i++)
-        {
-            c = array + i;
-            for (j = i + 1; j < size; j++)
-                c = (array[j] < *c) ? (array + j) : c;
+	for (i = 0; i < size - 1; i++)
+	{
+	c = array + i;
+	for (j = i + 1; j < size; j++)
+	c = (array[j] < *c) ? (array + j) : c;
 
-            if ((array + i) != c)
-            {
-                swaping(array + i, c);
-                print_array(array, size);
-            }
-    }
+	if ((array + i) != c)
+	{
+	swaping(array + i, c);
+	print_array(array, size);
+	}
+	}
 }
